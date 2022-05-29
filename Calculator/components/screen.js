@@ -119,6 +119,35 @@ function App() {
           button === "-" ||
           button === "+" ? (
             <TouchableOpacity
+            key={button}
+              style={[styles.button, { backgroundColor: "#00b9d6" }]}
+              onPress={() => handleInput(button)}
+            >
+              <Text
+                style={[styles.textButton, { color: "white", fontSize: 28 }]}
+              >
+                {button}
+              </Text>
+            </TouchableOpacity>
+        ): button === 0 ? (
+            <TouchableOpacity
+              key={button}
+              style={[
+                styles.button,
+                {
+                  backgroundColor:
+                    typeof button === "number"
+                      ? darkMode
+                        ? "#303946"
+                        : "#fff"
+                      : darkMode === true
+                      ? "#414853"
+                      : "#ededed",
+                  minWidth: "36%",
+                },
+              ]}
+              onPress={() => handleInput(button)}
+            ></TouchableOpacity>
   )
 }
 export default App;
