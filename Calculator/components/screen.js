@@ -97,7 +97,7 @@ function App() {
     setCurrentNumber(currentNumber + buttonPressed);
   }
 
-  return(
+  return (
     <View>
       <View style={styles.results}>
         <TouchableOpacity style={styles.themeButton}>
@@ -108,17 +108,17 @@ function App() {
             onPress={() => (darkMode ? setDarkMode(false) : setDarkMode(true))}
           />
         </TouchableOpacity>
-          <Text style={styles.historyText}>{lastNumber}</Text>
-          <Text style={styles.resultText}>{currentNumber}</Text>
-        </View>
-        <View style={styles.buttons}>
-          {buttons.map((button) =>
-            button === "=" ||
-            button === "/" ||
-            button === "*" ||
-            button === "-" ||
-            button === "+" ? (
-              <TouchableOpacity
+        <Text style={styles.historyText}>{lastNumber}</Text>
+        <Text style={styles.resultText}>{currentNumber}</Text>
+      </View>
+      <View style={styles.buttons}>
+        {buttons.map((button) =>
+          button === "=" ||
+          button === "/" ||
+          button === "*" ||
+          button === "-" ||
+          button === "+" ? (
+            <TouchableOpacity
               key={button}
               style={[styles.button, { backgroundColor: "#00b9d6" }]}
               onPress={() => handleInput(button)}
@@ -148,7 +148,7 @@ function App() {
               ]}
               onPress={() => handleInput(button)}
             >
- <Text style={styles.textButton}>{button}</Text>
+              <Text style={styles.textButton}>{button}</Text>
             </TouchableOpacity>
           ) : button === "." || button === "DEL" ? (
             <TouchableOpacity
@@ -168,33 +168,56 @@ function App() {
                 },
               ]}
               onPress={() => handleInput(button)}
-            ></TouchableOpacity>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  )
+            >
+              {" "}
+              <Text style={styles.textButton}>{button}</Text>
+            </TouchableOpacity>
+          ) : button === "C" ? (
+            <TouchableOpacity
+              key={button}
+              style={[
+                styles.button,
+                {
+                  backgroundColor:
+                    typeof button === "number"
+                      ? darkMode
+                        ? "#303946"
+                        : "#fff"
+                      : darkMode === true
+                      ? "#414853"
+                      : "#ededed",
+                  minWidth: "36%",
+                },
+              ]}
+              onPress={() => handleInput(button)}
+            >
+              {" "}
+              <Text style={styles.textButton}>{button}</Text>
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity
+              key={button}
+              style={[
+                styles.button,
+                {
+                  backgroundColor:
+                    typeof button === "number"
+                      ? darkMode
+                        ? "#303946"
+                        : "#fff"
+                      : darkMode === true
+                      ? "#414853"
+                      : "#ededed",
+                },
+              ]}
+              onPress={() => handleInput(button)}
+            >
+              <Text style={styles.textButton}>{button}</Text>
+            </TouchableOpacity>
+          )
+        )}
+      </View>
+    </View>
+  );
 }
 export default App;
