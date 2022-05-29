@@ -10,7 +10,7 @@ import { useState } from "react";
 import { Entypo } from "@expo/vector-icons";
 import "./style";
 
-function App() {
+function Caaal() {
   const [darkMode, setDarkMode] = useState(false);
   const [currentNumber, setCurrentNumber] = useState("");
   const [lastNumber, setLastNumber] = useState("");
@@ -220,4 +220,4 @@ function App() {
     </View>
   );
 }
-export default App;
+export default Caaal;
