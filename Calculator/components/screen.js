@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { useState } from "react";
 import { Entypo } from "@expo/vector-icons";
+import './style'
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -74,6 +75,27 @@ function App() {
         buttonPressed === 9 ||
         buttonPressed === 0 ||
         buttonPressed === "."
-      ) 
+      ) {
+        Vibration.vibrate(35);
+      }
+      switch (buttonPressed) {
+        case "DEL":
+          Vibration.vibrate(35);
+          setCurrentNumber(currentNumber.substring(0, currentNumber.length - 1));
+          return;
+        case "C":
+          Vibration.vibrate(35);
+          setLastNumber("");
+          setCurrentNumber("");
+          return;
+        case "=":
+          Vibration.vibrate(35);
+          setLastNumber(currentNumber + "=");
+          calculator();
+          return;
+      }
+      setCurrentNumber(currentNumber + buttonPressed);
+    }
+    
 }
 export default App;
