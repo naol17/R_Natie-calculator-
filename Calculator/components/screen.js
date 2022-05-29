@@ -108,6 +108,17 @@ function App() {
           onPress={() => (darkMode ? setDarkMode(false) : setDarkMode(true))}
         />
       </TouchableOpacity>
+      <Text style={styles.historyText}>{lastNumber}</Text>
+        <Text style={styles.resultText}>{currentNumber}</Text>
+      </View>
+      <View style={styles.buttons}>
+        {buttons.map((button) =>
+          button === "=" ||
+          button === "/" ||
+          button === "*" ||
+          button === "-" ||
+          button === "+" ? (
+            <TouchableOpacity
   )
 }
 export default App;
