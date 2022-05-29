@@ -148,7 +148,27 @@ function App() {
               ]}
               onPress={() => handleInput(button)}
             >
-
+ <Text style={styles.textButton}>{button}</Text>
+            </TouchableOpacity>
+          ) : button === "." || button === "DEL" ? (
+            <TouchableOpacity
+              key={button}
+              style={[
+                styles.button,
+                {
+                  backgroundColor:
+                    button === "."
+                      ? darkMode
+                        ? "#303946"
+                        : "#fff"
+                      : darkMode === true
+                      ? "#414853"
+                      : "#ededed",
+                  minWidth: "37%",
+                },
+              ]}
+              onPress={() => handleInput(button)}
+            ></TouchableOpacity>
 
 
 
