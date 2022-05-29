@@ -13,4 +13,10 @@ const styles = StyleSheet.create({
         margin: 15,
         fontSize: 35,
       },
+      historyText: {
+        color: darkMode ? "#B5B7BB" : "#7c7c7c",
+        fontSize: 20,
+        marginRight: 10,
+        alignSelf: "flex-end",
+      },
 })
