@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { useState } from "react";
 import { Entypo } from "@expo/vector-icons";
-import './style'
+import "./style";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -60,42 +60,54 @@ function App() {
       buttonPressed === "*" ||
       buttonPressed === "/"
     ) {
-        Vibration.vibrate(35);
-        setCurrentNumber(currentNumber + buttonPressed);
-        return;
-      } else if (
-        buttonPressed === 1 ||
-        buttonPressed === 2 ||
-        buttonPressed === 3 ||
-        buttonPressed === 4 ||
-        buttonPressed === 5 ||
-        buttonPressed === 6 ||
-        buttonPressed === 7 ||
-        buttonPressed === 8 ||
-        buttonPressed === 9 ||
-        buttonPressed === 0 ||
-        buttonPressed === "."
-      ) {
-        Vibration.vibrate(35);
-      }
-      switch (buttonPressed) {
-        case "DEL":
-          Vibration.vibrate(35);
-          setCurrentNumber(currentNumber.substring(0, currentNumber.length - 1));
-          return;
-        case "C":
-          Vibration.vibrate(35);
-          setLastNumber("");
-          setCurrentNumber("");
-          return;
-        case "=":
-          Vibration.vibrate(35);
-          setLastNumber(currentNumber + "=");
-          calculator();
-          return;
-      }
+      Vibration.vibrate(35);
       setCurrentNumber(currentNumber + buttonPressed);
+      return;
+    } else if (
+      buttonPressed === 1 ||
+      buttonPressed === 2 ||
+      buttonPressed === 3 ||
+      buttonPressed === 4 ||
+      buttonPressed === 5 ||
+      buttonPressed === 6 ||
+      buttonPressed === 7 ||
+      buttonPressed === 8 ||
+      buttonPressed === 9 ||
+      buttonPressed === 0 ||
+      buttonPressed === "."
+    ) {
+      Vibration.vibrate(35);
     }
-    
+    switch (buttonPressed) {
+      case "DEL":
+        Vibration.vibrate(35);
+        setCurrentNumber(currentNumber.substring(0, currentNumber.length - 1));
+        return;
+      case "C":
+        Vibration.vibrate(35);
+        setLastNumber("");
+        setCurrentNumber("");
+        return;
+      case "=":
+        Vibration.vibrate(35);
+        setLastNumber(currentNumber + "=");
+        calculator();
+        return;
+    }
+    setCurrentNumber(currentNumber + buttonPressed);
+  }
+
+  return(
+    <View>
+    <View style={styles.results}>
+      <TouchableOpacity style={styles.themeButton}>
+        <Entypo
+          name={darkMode ? "light-up" : "moon"}
+          size={24}
+          color={darkMode ? "white" : "black"}
+          onPress={() => (darkMode ? setDarkMode(false) : setDarkMode(true))}
+        />
+      </TouchableOpacity>
+  )
 }
 export default App;
