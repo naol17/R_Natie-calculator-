@@ -52,5 +52,28 @@ function App() {
       return;
     }
   }
+  function handleInput(buttonPressed) {
+    if (
+      buttonPressed === "+" ||
+      buttonPressed === "-" ||
+      buttonPressed === "*" ||
+      buttonPressed === "/"
+    ) {
+        Vibration.vibrate(35);
+        setCurrentNumber(currentNumber + buttonPressed);
+        return;
+      } else if (
+        buttonPressed === 1 ||
+        buttonPressed === 2 ||
+        buttonPressed === 3 ||
+        buttonPressed === 4 ||
+        buttonPressed === 5 ||
+        buttonPressed === 6 ||
+        buttonPressed === 7 ||
+        buttonPressed === 8 ||
+        buttonPressed === 9 ||
+        buttonPressed === 0 ||
+        buttonPressed === "."
+      ) 
 }
 export default App;
