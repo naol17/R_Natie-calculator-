@@ -99,27 +99,27 @@ function App() {
 
   return(
     <View>
-    <View style={styles.results}>
-      <TouchableOpacity style={styles.themeButton}>
-        <Entypo
-          name={darkMode ? "light-up" : "moon"}
-          size={24}
-          color={darkMode ? "white" : "black"}
-          onPress={() => (darkMode ? setDarkMode(false) : setDarkMode(true))}
-        />
-      </TouchableOpacity>
-      <Text style={styles.historyText}>{lastNumber}</Text>
-        <Text style={styles.resultText}>{currentNumber}</Text>
-      </View>
-      <View style={styles.buttons}>
-        {buttons.map((button) =>
-          button === "=" ||
-          button === "/" ||
-          button === "*" ||
-          button === "-" ||
-          button === "+" ? (
-            <TouchableOpacity
-            key={button}
+      <View style={styles.results}>
+        <TouchableOpacity style={styles.themeButton}>
+          <Entypo
+            name={darkMode ? "light-up" : "moon"}
+            size={24}
+            color={darkMode ? "white" : "black"}
+            onPress={() => (darkMode ? setDarkMode(false) : setDarkMode(true))}
+          />
+        </TouchableOpacity>
+          <Text style={styles.historyText}>{lastNumber}</Text>
+          <Text style={styles.resultText}>{currentNumber}</Text>
+        </View>
+        <View style={styles.buttons}>
+          {buttons.map((button) =>
+            button === "=" ||
+            button === "/" ||
+            button === "*" ||
+            button === "-" ||
+            button === "+" ? (
+              <TouchableOpacity
+              key={button}
               style={[styles.button, { backgroundColor: "#00b9d6" }]}
               onPress={() => handleInput(button)}
             >
@@ -129,7 +129,7 @@ function App() {
                 {button}
               </Text>
             </TouchableOpacity>
-        ): button === 0 ? (
+          ) : button === 0 ? (
             <TouchableOpacity
               key={button}
               style={[
@@ -147,7 +147,34 @@ function App() {
                 },
               ]}
               onPress={() => handleInput(button)}
-            ></TouchableOpacity>
+            >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   )
 }
 export default App;
